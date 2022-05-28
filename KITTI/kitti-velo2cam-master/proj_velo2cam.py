@@ -4,9 +4,8 @@ import matplotlib.image as mpimg
 import numpy as np
 
 plt.rc('figure', max_open_warning = 0)
-first = int(sys.argv[1])
-last = int(sys.argv[2])
-for i in range(first, last+1) :
+
+for i in range(int(sys.argv[1]), int(sys.argv[2]) + 1) :
     sn = i
     name = '%010d'%sn # 10 digit zeropadding
     img = f'./image/background.png'
@@ -51,3 +50,6 @@ for i in range(first, last+1) :
     plt.scatter([u],[v],c=[z],cmap='rainbow_r',alpha=0.5,s=2)
     # plt.title(name)
     plt.savefig(f'./projection/{name}.png',bbox_inches='tight')
+
+
+
