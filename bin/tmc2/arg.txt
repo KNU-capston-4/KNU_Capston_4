@@ -1,0 +1,5 @@
+ffmpeg -s widthxheight -i input.yuv image%04d.png
+
+./bin/PccAppEncoder.exe --configurationFolder=cfg/ --config=cfg/common/ctc-common.cfg --config=cfg/condition/ctc-all-intra.cfg --config=cfg/rate/ctc-r3.cfg --keepIntermediateFiles --uncompressedDataFolder=../andrew9 --uncompressedDataPath=/frame%04d.ply --frameCount=318 --reconstructedDataPath=./output/frame%04d.ply --compressedStreamPath=./output/test.bin --nbThread=6
+
+./bin/PccAppDecoder.exe --reconstructedDataPath=./output/test%04d.ply --compressedStreamPath=./output/test.bin --inverseColorSpaceConversionConfig=cfg/hdrconvert/yuv420torgb444.cfg
